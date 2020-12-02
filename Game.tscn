@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://NavButtons.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://FleasTab.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ShopTab.tscn" type="PackedScene" id=4]
+[ext_resource path="res://OrdersTab.tscn" type="PackedScene" id=5]
+
+[node name="Game" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Flea Market"
+align = 1
+
+[node name="OrdersTab" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FleasTab" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShopTab" parent="." instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 562.0
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 580.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="OrdersButton" type="Button" parent="HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = ExtResource( 2 )
+text = "Orders"
+
+[node name="FleasButton" type="Button" parent="HBoxContainer"]
+margin_left = 342.0
+margin_right = 680.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = ExtResource( 2 )
+text = "Fleas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopButton" type="Button" parent="HBoxContainer"]
+margin_left = 684.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = ExtResource( 2 )
+text = "Shop"
+[connection signal="pressed" from="HBoxContainer/OrdersButton" to="." method="_on_OrdersButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/FleasButton" to="." method="_on_FleasButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/ShopButton" to="." method="_on_ShopButton_pressed"]

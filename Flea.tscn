@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Flea.gd" type="Script" id=1]
+
+[node name="Flea" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AgeTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="SexLabel" type="Label" parent="."]
+margin_top = 293.0
+margin_bottom = 307.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_right = 84.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel" type="Label" parent="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 14.0
+align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 64.0
+margin_bottom = 32.0
+text = "size (mm)"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 104.0
+margin_right = 162.0
+margin_bottom = 600.0
+
+[node name="AgeLabel" type="Label" parent="VBoxContainer2"]
+margin_right = 58.0
+margin_bottom = 14.0
+align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_top = 18.0
+margin_right = 58.0
+margin_bottom = 32.0
+text = "Days Old"
+
+[node name="ReleaseButton" type="Button" parent="."]
+margin_left = 182.0
+margin_right = 244.0
+margin_bottom = 600.0
+text = "Release"
+[connection signal="timeout" from="AgeTimer" to="." method="_on_AgeTimer_timeout"]
+[connection signal="pressed" from="ReleaseButton" to="." method="_on_ReleaseButton_pressed"]
