@@ -7,7 +7,7 @@ var max_age
 var id
 
 func _ready():
-	self.connect("die", get_node("/root/Game/FleasTab"), "_on_flea_die")
+	self.connect("die", get_node("/root/Game"), "_on_flea_die")
 
 func populate(genes, id):
 	self.id = id
@@ -15,13 +15,14 @@ func populate(genes, id):
 		$SexLabel.text = "F"
 	else:
 		$SexLabel.text = "M"
-	$VBoxContainer/SizeLabel.text = str(Evolution.calculate_size(genes))
-	$VBoxContainer2/AgeLabel.text = str(age)
+	$SizeLabel.text = str(Evolution.calculate_size(genes))
+	$ObedienceLabel.text = Evolution.calculate_obedience(genes)
+	$AgeLabel.text = str(age)
 	max_age = round(genes[2])
 
 func _on_AgeTimer_timeout():
 	age += 1
-	$VBoxContainer2/AgeLabel.text = str(age)
+	$AgeLabel.text = str(age)
 	if age == max_age:
 		die()
 		

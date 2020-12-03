@@ -10,20 +10,65 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PopulationLabel" type="Label" parent="."]
+margin_right = 412.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 18.0
+margin_right = 412.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 79.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Sex"
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+margin_left = 83.0
+margin_right = 162.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Size (mm)"
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+margin_left = 166.0
+margin_right = 245.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Obedience"
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+margin_left = 249.0
+margin_right = 328.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Age (days)"
+
+[node name="Label5" type="Label" parent="HBoxContainer"]
+margin_left = 332.0
+margin_right = 412.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
 [node name="ReproduceTimer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 36.0
+margin_right = 412.0
+margin_bottom = 846.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="FleaContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 412.0
+margin_bottom = 810.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="timeout" from="ReproduceTimer" to="." method="_on_ReproduceTimer_timeout"]

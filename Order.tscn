@@ -14,7 +14,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 1024.0
+margin_right = 412.0
 margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,7 +26,7 @@ align = 1
 
 [node name="DescriptionLabel" type="Label" parent="HBoxContainer"]
 margin_left = 4.0
-margin_right = 1020.0
+margin_right = 408.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 align = 1
@@ -35,26 +35,21 @@ __meta__ = {
 }
 
 [node name="PriceLabel" type="Label" parent="HBoxContainer"]
-margin_left = 1024.0
-margin_right = 1024.0
+margin_left = 412.0
+margin_right = 412.0
 margin_bottom = 14.0
 align = 1
 
 [node name="SecondTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="ExpireTimer" type="Timer" parent="."]
-wait_time = 300.0
-autostart = true
-
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_top = 34.0
-margin_right = 1024.0
-margin_bottom = 87.0
-max_value = 300.0
-value = 300.0
+margin_right = 412.0
+margin_bottom = 54.0
+max_value = 600.0
+value = 600.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
 [connection signal="gui_input" from="." to="." method="_on_Order_gui_input"]
 [connection signal="timeout" from="SecondTimer" to="." method="_on_SecondTimer_timeout"]
-[connection signal="timeout" from="ExpireTimer" to="." method="_on_ExpireTimer_timeout"]

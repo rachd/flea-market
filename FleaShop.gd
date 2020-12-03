@@ -15,7 +15,8 @@ func populate(flea, id):
 		$SexLabel.text = "F"
 	else:
 		$SexLabel.text = "M"
-	$VBoxContainer/SizeLabel.text = str(Evolution.calculate_size(flea.genes))
+	$SizeLabel.text = str(Evolution.calculate_size(flea.genes))
+	$ObedienceLabel.text = Evolution.calculate_obedience(flea.genes)
 	$PriceLabel.text = str(flea.price) + " cents"
 	check_enabled()
 

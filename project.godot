@@ -26,6 +26,11 @@ GameVariables="*res://game_variables.gd"
 OrderHelper="*res://order_helper.gd"
 ShopHelper="*res://shop_helper.gd"
 
+[display]
+
+window/size/width=412
+window/size/height=846
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

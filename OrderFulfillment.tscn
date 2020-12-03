@@ -21,27 +21,67 @@ text = "X"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 24.0
-margin_right = 1024.0
+margin_right = 412.0
 margin_bottom = 111.0
 readOnly = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_top = 115.0
-margin_right = 1024.0
-margin_bottom = 576.0
+margin_right = 412.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Sex"
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Size (mm)"
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Obedience"
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+margin_left = 312.0
+margin_right = 412.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Select"
+
+[node name="NoFleasLabel" type="Label" parent="."]
+visible = false
+margin_top = 133.0
+margin_right = 412.0
+margin_bottom = 147.0
+text = "None of your fleas meet this order's requirement"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 133.0
+margin_right = 412.0
+margin_bottom = 822.0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="FleaContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 1024.0
-margin_bottom = 461.0
+margin_right = 412.0
+margin_bottom = 689.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="FulfillButton" type="Button" parent="."]
-margin_top = 580.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 826.0
+margin_right = 412.0
+margin_bottom = 846.0
 disabled = true
 text = "Fulfill"
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

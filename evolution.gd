@@ -13,7 +13,17 @@ func generate_member():
 	member.push_back(rng.randfn(1.5, 0.2))
 	#2: lifespan - mean 80, std 10
 	member.push_back(rng.randfn(80, 10))
+	#3: obedience - mean 0.2, std. 0.2; trait is categorical <0.4, <0, <0.4, <0.8, <1.2
+	member.push_back(rng.randfn(0, 0.2))
 	return member
+	
+func generate_shop_flea():
+	var shop_flea = []
+	shop_flea.append(rng.randi_range(0, 1))
+	shop_flea.append(rng.randf_range(0.5, 2.7))
+	shop_flea.append(rng.randf_range(50, 110))
+	shop_flea.append(rng.randf_range(-0.8, 1.2))
+	return shop_flea
 	
 func generate_initial_population():
 	var population = {}
@@ -37,6 +47,8 @@ func _ready():
 	var population = generate_initial_population()
 
 func can_reproduce():
+	if GameVariables.population.size() == 20:
+		return false
 	var has_male = false
 	var has_female = false
 	for p in GameVariables.population.keys():
@@ -64,14 +76,45 @@ func reproduce(p):
 				new_child.push_back(rng.randfn(parent_1[g], 0.1))
 			else:
 				new_child.push_back(rng.randfn(parent_2[g], 0.1))
+	new_child = _set_bounds(new_child)
 	id += 1
 	return {"value": new_child, "id": id}
 	
 func calculate_size(flea):
 	return _round_to_dec(flea[1] + (1 * (1 - flea[0])), 2)
+	
+func calculate_obedience(flea):
+	var trait_value = flea[3]
+	if trait_value < -0.4:
+		return "Very Bad"
+	elif trait_value < 0:
+		return "Bad"
+	elif trait_value < 0.4:
+		return "Neutral"
+	elif trait_value < 0.8:
+		return "Good"
+	elif trait_value < 1.2:
+		return "Very Good"
 
 func _round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+	
+func _set_bounds(child):
+	if child[1] < 0.5:
+		child[1] = 0.5
+	elif child[1] > 3.7:
+		child[1] = 3.7
+		
+	if child[2] < 50:
+		child[2] = 50
+	elif child[2] > 110:
+		child[2] = 110
+	
+	if child[3] < -0.8:
+		child[3] = -0.8
+	elif child[3] > 1.2:
+		child[3] = 1.2
+	return child
 	
 func assign_id():
 	id += 1

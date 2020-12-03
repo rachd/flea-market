@@ -11,7 +11,8 @@ func populate(genes, id):
 		$SexLabel.text = "F"
 	else:
 		$SexLabel.text = "M"
-	$VBoxContainer/SizeLabel.text = str(Evolution.calculate_size(genes))
+	$SizeLabel.text = str(Evolution.calculate_size(genes))
+	$ObedienceLabel.text = Evolution.calculate_obedience(genes)
 
 func _on_CheckBox_toggled(button_pressed):
 	if button_pressed:

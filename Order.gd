@@ -6,19 +6,16 @@ signal expired(id)
 export var readOnly = false
 
 var order_id
-var time_left = 300
+var time_left = 600
 
-func populate(id, countdown = 300):
-	self.order_id = id
+func populate(id, countdown = 600):
+	order_id = id
 	var order = GameVariables.orders[id]
 	$HBoxContainer/QuantityLabel.text = str(order.quantity)
 	$HBoxContainer/DescriptionLabel.text = order.description
 	$HBoxContainer/PriceLabel.text = str(order.price) + " cents"
 	time_left = countdown
 	$TextureProgress.value = time_left
-
-func check_enabled():
-	pass
 
 func _on_Order_gui_input(event):
 	if !readOnly and (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
@@ -31,7 +28,5 @@ func _ready():
 func _on_SecondTimer_timeout():
 	time_left -= 1
 	$TextureProgress.value = time_left
-
-
-func _on_ExpireTimer_timeout():
-	emit_signal("expired", order_id)
+	if time_left == 0 and !readOnly:
+		emit_signal("expired", order_id)

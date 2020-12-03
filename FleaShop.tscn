@@ -12,36 +12,42 @@ __meta__ = {
 }
 
 [node name="SexLabel" type="Label" parent="."]
-margin_top = 293.0
-margin_bottom = 307.0
+margin_top = 416.0
+margin_right = 66.0
+margin_bottom = 430.0
+size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 20.0
-margin_right = 84.0
-margin_bottom = 600.0
-
-[node name="SizeLabel" type="Label" parent="VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 14.0
+[node name="SizeLabel" type="Label" parent="."]
+margin_left = 86.0
+margin_top = 416.0
+margin_right = 152.0
+margin_bottom = 430.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 64.0
-margin_bottom = 32.0
-text = "size (mm)"
+[node name="ObedienceLabel" type="Label" parent="."]
+margin_left = 172.0
+margin_top = 416.0
+margin_right = 238.0
+margin_bottom = 430.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PriceLabel" type="Label" parent="."]
-margin_left = 104.0
-margin_top = 293.0
-margin_right = 104.0
-margin_bottom = 307.0
+margin_left = 258.0
+margin_top = 416.0
+margin_right = 324.0
+margin_bottom = 430.0
+size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="."]
-margin_left = 124.0
-margin_right = 160.0
-margin_bottom = 600.0
+margin_left = 344.0
+margin_right = 412.0
+margin_bottom = 846.0
+size_flags_horizontal = 3
 text = "Buy"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
