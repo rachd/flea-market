@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="FleaMarket"
-run/main_scene="res://Game.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://StartScreen.tscn"
+config/icon="res://flea_icon.png"
 
 [autoload]
 

@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="Control" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 386.0
+margin_right = 392.0
+margin_bottom = 460.0
+custom_constants/line_spacing = 6
+text = "Congratulations! You have worked hard and finally completed your lifelong dream of retiring from the hard slog of flea raising, earning enough money to be able to start a flea circus of your own. "
+align = 1
+autowrap = true

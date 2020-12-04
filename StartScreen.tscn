@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StartScreen.gd" type="Script" id=1]
+
+[node name="StartScreen" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 392.0
+margin_bottom = 826.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 222.0
+margin_right = 372.0
+margin_bottom = 559.0
+text = "Welcome to Flea Market!  You are a hardworking fleakeeper, trying to breed the fleas your customers want in the hopes that one day you can earn enough money to start a flea circus of your own.
+
+Each flea has multiple traits, which they can pass on to their children. Make sure to always have at least one male and one female.
+
+Orders will come in on the Orders tab. Clicking an order will let you select which fleas to sell from a list of your applicable fleas. Press the fulfill button when you are ready to complete the order. You can spend money on advertising to bring in more orders.
+
+If you are looking for particular traits, check out the Shop, where you can purchase additional fleas.
+
+Good luck!
+"
+align = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 563.0
+margin_right = 372.0
+margin_bottom = 583.0
+text = "Start"
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

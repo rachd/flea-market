@@ -73,6 +73,7 @@ func _on_AdvertiseProgressTimer_timeout():
 	$AdvertiseContainer/TextureProgress.value = advertise_progress
 	if advertise_progress == 100:
 		_add_order()
+		_add_order()
 		$AdvertiseContainer/AdvertiseProgressTimer.stop()
 		$AdvertiseContainer/TextureProgress.hide()
 		$AdvertiseContainer/AdvertiseButton.show()

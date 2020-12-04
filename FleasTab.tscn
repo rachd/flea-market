@@ -22,27 +22,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="SexHeader" type="Label" parent="HBoxContainer"]
 margin_right = 79.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Sex"
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
+[node name="SizeHeader" type="Label" parent="HBoxContainer"]
 margin_left = 83.0
 margin_right = 162.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Size (mm)"
 
-[node name="Label3" type="Label" parent="HBoxContainer"]
+[node name="ObedienceHeader" type="Label" parent="HBoxContainer"]
 margin_left = 166.0
 margin_right = 245.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Obedience"
 
-[node name="Label4" type="Label" parent="HBoxContainer"]
+[node name="AgeHeader" type="Label" parent="HBoxContainer"]
 margin_left = 249.0
 margin_right = 328.0
 margin_bottom = 14.0

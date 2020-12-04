@@ -10,6 +10,7 @@ func _ready():
 func update_funds():
 	for child in shop_children:
 		shop_children[child].check_enabled()
+	$HBoxContainer2/RetireButton.disabled = GameVariables.cents < 1000000
 		
 func on_flea_purchased(flea, shop_id):
 	update_funds()
@@ -35,3 +36,7 @@ func _refresh_fleas():
 		flea_instance.populate(flea.value, flea.key)
 		$ScrollContainer/ItemsContainer.add_child(flea_instance)
 		shop_children[flea.key] = flea_instance
+
+
+func _on_RetireButton_pressed():
+	get_tree().change_scene("res://EndScreen.tscn")

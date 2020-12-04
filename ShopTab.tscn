@@ -5,6 +5,7 @@
 [node name="ShopTab" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 20
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -14,9 +15,57 @@ __meta__ = {
 wait_time = 180.0
 autostart = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
 margin_right = 412.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+margin_top = 3.0
+margin_right = 73.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Retire"
+
+[node name="Label2" type="Label" parent="HBoxContainer2"]
+margin_left = 77.0
+margin_top = 3.0
+margin_right = 150.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+
+[node name="Label5" type="Label" parent="HBoxContainer2"]
+margin_left = 154.0
+margin_top = 3.0
+margin_right = 257.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "1,000,000 cents"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="HBoxContainer2"]
+margin_left = 261.0
+margin_top = 3.0
+margin_right = 334.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+
+[node name="RetireButton" type="Button" parent="HBoxContainer2"]
+margin_left = 338.0
+margin_right = 412.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+disabled = true
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 40.0
+margin_right = 412.0
+margin_bottom = 54.0
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 margin_right = 79.0
@@ -52,7 +101,7 @@ margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_top = 18.0
+margin_top = 74.0
 margin_right = 412.0
 margin_bottom = 846.0
 size_flags_horizontal = 3
@@ -60,7 +109,8 @@ size_flags_vertical = 3
 
 [node name="ItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 412.0
-margin_bottom = 828.0
+margin_bottom = 772.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="HBoxContainer2/RetireButton" to="." method="_on_RetireButton_pressed"]
