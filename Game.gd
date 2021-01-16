@@ -1,48 +1,48 @@
-extends MarginContainer
+extends VBoxContainer
 
 func _ready():
 	set_funds_text()
 
 func _on_OrdersButton_pressed():
-	$VBoxContainer/ShopTab.close_tab()
-	$VBoxContainer/FleasTab.close_tab()
-	$VBoxContainer/OrdersTab.show()
+	$ShopTab.close_tab()
+	$FleasTab.close_tab()
+	$OrdersTab.show()
 
 func _on_FleasButton_pressed():
-	$VBoxContainer/ShopTab.close_tab()
-	$VBoxContainer/FleasTab.show()
-	$VBoxContainer/OrdersTab.close_tab()
+	$ShopTab.close_tab()
+	$FleasTab.show()
+	$OrdersTab.close_tab()
 
 func _on_ShopButton_pressed():
-	$VBoxContainer/ShopTab.show()
-	$VBoxContainer/FleasTab.close_tab()
-	$VBoxContainer/OrdersTab.close_tab()
+	$ShopTab.show()
+	$FleasTab.close_tab()
+	$OrdersTab.close_tab()
 
 func _on_order_fulfilled(flea_ids, order_id, price):
 	GameVariables.cents += price
 	set_funds_text()
-	$VBoxContainer/FleasTab.on_order_fulfilled(flea_ids)
-	$VBoxContainer/OrdersTab.on_order_fulfilled(order_id)
-	$VBoxContainer/ShopTab.update_funds()
+	$FleasTab.on_order_fulfilled(flea_ids)
+	$OrdersTab.on_order_fulfilled(order_id)
+	$ShopTab.update_funds()
 
 func _on_flea_purchased(flea, shop_id):
 	GameVariables.cents -= flea.price
 	set_funds_text()
-	$VBoxContainer/FleasTab.on_flea_purchased(flea)
-	$VBoxContainer/ShopTab.on_flea_purchased(flea, shop_id)
-	$VBoxContainer/OrdersTab.on_flea_purchased()
+	$FleasTab.on_flea_purchased(flea)
+	$ShopTab.on_flea_purchased(flea, shop_id)
+	$OrdersTab.on_flea_purchased()
 	
 func _on_flea_born(flea_id):
-	$VBoxContainer/OrdersTab.on_flea_born(flea_id)
+	$OrdersTab.on_flea_born(flea_id)
 	
 func _on_flea_die(flea_id):
-	$VBoxContainer/FleasTab.on_flea_die(flea_id)
-	$VBoxContainer/OrdersTab.on_flea_die(flea_id)
+	$FleasTab.on_flea_die(flea_id)
+	$OrdersTab.on_flea_die(flea_id)
 	
 func _on_advertise():
 	GameVariables.cents -= 3
 	set_funds_text()
-	$VBoxContainer/OrdersTab.on_advertise()
+	$OrdersTab.on_advertise()
 	
 func format(n):
 	n = str(n)
@@ -60,6 +60,6 @@ func format(n):
 func set_funds_text():
 	var formattedCents = format(GameVariables.cents)
 	if GameVariables.cents == 1:
-		$VBoxContainer/FundsLabel.text = formattedCents + " cent"
+		$FundsLabel.text = formattedCents + " cent"
 	else:
-		$VBoxContainer/FundsLabel.text = formattedCents + " cents"
+		$FundsLabel.text = formattedCents + " cents"

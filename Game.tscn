@@ -6,26 +6,19 @@
 [ext_resource path="res://ShopTab.tscn" type="PackedScene" id=4]
 [ext_resource path="res://OrdersTab.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="MarginContainer"]
+[node name="Game" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 412.0
-margin_bottom = 846.0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 margin_right = 412.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Flea Market"
 align = 1
 
-[node name="FundsLabel" type="Label" parent="VBoxContainer"]
+[node name="FundsLabel" type="Label" parent="."]
 margin_top = 18.0
 margin_right = 412.0
 margin_bottom = 32.0
@@ -34,7 +27,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Placeholder" type="Label" parent="VBoxContainer"]
+[node name="Placeholder" type="Label" parent="."]
 margin_top = 36.0
 margin_right = 412.0
 margin_bottom = 50.0
@@ -43,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OrdersTab" parent="VBoxContainer" instance=ExtResource( 5 )]
+[node name="OrdersTab" parent="." instance=ExtResource( 5 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -53,7 +46,7 @@ margin_bottom = -764.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="FleasTab" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="FleasTab" parent="." instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 54.0
@@ -62,7 +55,7 @@ margin_bottom = 822.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShopTab" parent="VBoxContainer" instance=ExtResource( 4 )]
+[node name="ShopTab" parent="." instance=ExtResource( 4 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -72,12 +65,12 @@ margin_bottom = 612.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_top = 826.0
 margin_right = 412.0
 margin_bottom = 846.0
 
-[node name="OrdersButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="OrdersButton" type="Button" parent="HBoxContainer"]
 margin_right = 134.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -85,7 +78,7 @@ toggle_mode = true
 group = ExtResource( 2 )
 text = "Orders"
 
-[node name="FleasButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="FleasButton" type="Button" parent="HBoxContainer"]
 margin_left = 138.0
 margin_right = 272.0
 margin_bottom = 20.0
@@ -98,7 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ShopButton" type="Button" parent="HBoxContainer"]
 margin_left = 276.0
 margin_right = 412.0
 margin_bottom = 20.0
@@ -106,6 +99,6 @@ size_flags_horizontal = 3
 toggle_mode = true
 group = ExtResource( 2 )
 text = "Shop"
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/OrdersButton" to="." method="_on_OrdersButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/FleasButton" to="." method="_on_FleasButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShopButton" to="." method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/OrdersButton" to="." method="_on_OrdersButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/FleasButton" to="." method="_on_FleasButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/ShopButton" to="." method="_on_ShopButton_pressed"]

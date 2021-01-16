@@ -22,7 +22,7 @@ func generate_shop_flea():
 	shop_flea.append(rng.randi_range(0, 1))
 	shop_flea.append(rng.randf_range(0.5, 2.7))
 	shop_flea.append(rng.randf_range(50, 110))
-	shop_flea.append(rng.randf_range(-0.8, 1.2))
+	shop_flea.append(rng.randf_range(-0.8, 0.4))
 	return shop_flea
 	
 func generate_initial_population():
@@ -112,8 +112,8 @@ func _set_bounds(child):
 	
 	if child[3] < -0.8:
 		child[3] = -0.8
-	elif child[3] > 1.2:
-		child[3] = 1.2
+	elif child[3] > 0.0:# 1.2:
+		child[3] = 0.0 #1.2
 	return child
 	
 func assign_id():

@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Flea.gd" type="Script" id=1]
+[ext_resource path="res://lifebar_bg.png" type="Texture" id=2]
+[ext_resource path="res://lifebar_fill.png" type="Texture" id=3]
 
 [node name="Flea" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 20
+custom_constants/separation = 5
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -17,36 +19,72 @@ autostart = true
 
 [node name="SexLabel" type="Label" parent="."]
 margin_top = 416.0
-margin_right = 66.0
+margin_right = 64.0
 margin_bottom = 430.0
 size_flags_horizontal = 3
 
 [node name="SizeLabel" type="Label" parent="."]
-margin_left = 86.0
+margin_left = 69.0
 margin_top = 416.0
-margin_right = 152.0
+margin_right = 133.0
 margin_bottom = 430.0
 size_flags_horizontal = 3
 
 [node name="ObedienceLabel" type="Label" parent="."]
-margin_left = 172.0
+margin_left = 138.0
 margin_top = 416.0
-margin_right = 238.0
+margin_right = 202.0
 margin_bottom = 430.0
 size_flags_horizontal = 3
 
 [node name="AgeLabel" type="Label" parent="."]
-margin_left = 258.0
+margin_left = 207.0
 margin_top = 416.0
-margin_right = 324.0
+margin_right = 271.0
 margin_bottom = 430.0
 size_flags_horizontal = 3
 
+[node name="Control" type="Control" parent="."]
+margin_left = 276.0
+margin_right = 340.0
+margin_bottom = 846.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrainButton" type="Button" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Train"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrainTimer" type="Timer" parent="Control"]
+wait_time = 0.02
+
+[node name="TextureProgress" type="TextureProgress" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 100.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ReleaseButton" type="Button" parent="."]
-margin_left = 344.0
+margin_left = 345.0
 margin_right = 412.0
 margin_bottom = 846.0
 size_flags_horizontal = 3
 text = "Release"
 [connection signal="timeout" from="AgeTimer" to="." method="_on_AgeTimer_timeout"]
+[connection signal="pressed" from="Control/TrainButton" to="." method="_on_TrainButton_pressed"]
+[connection signal="timeout" from="Control/TrainTimer" to="." method="_on_TrainTimer_timeout"]
 [connection signal="pressed" from="ReleaseButton" to="." method="_on_ReleaseButton_pressed"]
